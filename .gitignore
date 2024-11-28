@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Custom ###
+startup-database.sql
+application.properties
+*.log
