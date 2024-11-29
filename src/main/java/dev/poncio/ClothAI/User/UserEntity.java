@@ -1,6 +1,6 @@
-package dev.poncio.ClothAI.company;
+package dev.poncio.ClothAI.User;
 
-import dev.poncio.ClothAI.User.UserEntity;
+import dev.poncio.ClothAI.company.CompanyEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,13 +12,13 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 @Entity
-@Table(schema = "clothai", name = "company")
+@Table(schema = "clothai", name = "user")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@SQLDelete(sql = "UPDATE clothai.company SET active = false WHERE id=?")
-public class CompanyEntity {
+@SQLDelete(sql = "UPDATE clothai.user SET active = false WHERE id=?")
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,10 @@ public class CompanyEntity {
     private Long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "password")
+    private String password;
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
     @Column(name = "updated_at")
@@ -34,10 +38,7 @@ public class CompanyEntity {
     private ZonedDateTime deleted_at;
     @Column(name = "active")
     private Boolean active;
-    @ManyToMany
-    @JoinTable(schema = "clothai", name = "company_user",
-            joinColumns = @JoinColumn(name = "company_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<UserEntity> users;
+    @ManyToMany(mappedBy = "users")
+    private List<CompanyEntity> companies;
 
 }

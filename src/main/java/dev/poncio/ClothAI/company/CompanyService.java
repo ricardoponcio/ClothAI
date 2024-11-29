@@ -1,15 +1,17 @@
 package dev.poncio.ClothAI.company;
 
+import dev.poncio.ClothAI.auth.AuthContext;
 import dev.poncio.ClothAI.company.dto.CreateCompanyDTO;
 import dev.poncio.ClothAI.company.dto.UpdateCompanyDTO;
+import dev.poncio.ClothAI.userCompany.UserCompanyService;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -25,8 +27,14 @@ public class CompanyService {
     @Qualifier("partialUpdateMapper")
     private ModelMapper partialUpdateMapper;
 
+    @Autowired
+    private AuthContext authContext;
+
+    @Autowired
+    private UserCompanyService userCompanyService;
+
     public CompanyEntity findById(Long id) {
-        return this.repository.findById(id).orElseThrow(EntityNotFoundException::new);
+        return this.repository.findByIdAndActiveTrue(id).orElseThrow(EntityNotFoundException::new);
     }
 
     public List<CompanyEntity> listCompanies() {
@@ -37,6 +45,7 @@ public class CompanyService {
         final var newCompany = this.mapper.fromDto(createCompanyDTO);
         newCompany.setCreatedAt(ZonedDateTime.now());
         newCompany.setActive(Boolean.TRUE);
+        newCompany.setUsers(Collections.singletonList(this.authContext.getLoggedUser()));
         return this.repository.save(newCompany);
     }
 
