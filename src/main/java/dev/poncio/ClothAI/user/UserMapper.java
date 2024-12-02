@@ -1,7 +1,7 @@
-package dev.poncio.ClothAI.User;
+package dev.poncio.ClothAI.user;
 
-import dev.poncio.ClothAI.User.dto.UpdateUserDTO;
-import dev.poncio.ClothAI.User.dto.UserDTO;
+import dev.poncio.ClothAI.user.dto.UpdateUserDTO;
+import dev.poncio.ClothAI.user.dto.UserDTO;
 import dev.poncio.ClothAI.auth.dto.RegisterRequestDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

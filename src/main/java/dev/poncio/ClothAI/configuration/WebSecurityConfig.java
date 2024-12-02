@@ -1,6 +1,6 @@
 package dev.poncio.ClothAI.configuration;
 
-import dev.poncio.ClothAI.User.UserService;
+import dev.poncio.ClothAI.user.UserService;
 import dev.poncio.ClothAI.auth.jwt.filter.AbstractJWTFilter;
 import dev.poncio.ClothAI.auth.jwt.utils.AuthEntryPointJwt;
 import dev.poncio.ClothAI.auth.jwt.filter.JWTCookieFilter;
@@ -58,8 +58,8 @@ public class WebSecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/login").permitAll()
-                        .requestMatchers("/auth/register").permitAll()
+                        .requestMatchers("/api/auth/login").permitAll()
+                        .requestMatchers("/api/auth/register").permitAll()
                         //.requestMatchers("/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 );

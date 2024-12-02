@@ -1,6 +1,6 @@
 package dev.poncio.ClothAI.auth;
 
-import dev.poncio.ClothAI.User.UserEntity;
+import dev.poncio.ClothAI.user.UserEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

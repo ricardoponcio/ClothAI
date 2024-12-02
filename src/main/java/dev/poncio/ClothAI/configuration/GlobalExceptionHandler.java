@@ -1,6 +1,6 @@
 package dev.poncio.ClothAI.configuration;
 
-import dto.ExceptionDTO;
+import dev.poncio.ClothAI.dto.ExceptionDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +18,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> businessExceptionHandler(Exception exception, WebRequest request) {
+        return handleExceptionInternal(exception, ExceptionDTO.builder().message(exception.getMessage()).build(), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler(SecurityException.class)
+    public ResponseEntity<Object> securityExceptionHandler(SecurityException exception, WebRequest request) {
         return handleExceptionInternal(exception, ExceptionDTO.builder().message(exception.getMessage()).build(), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 

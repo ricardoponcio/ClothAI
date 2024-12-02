@@ -1,6 +1,6 @@
 package dev.poncio.ClothAI.auth;
 
-import dev.poncio.ClothAI.User.UserEntity;
+import dev.poncio.ClothAI.user.UserEntity;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

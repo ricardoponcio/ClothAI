@@ -1,4 +1,4 @@
-package dev.poncio.ClothAI.User.dto;
+package dev.poncio.ClothAI.user.dto;
 
 import lombok.Data;
 
@@ -9,6 +9,6 @@ public class UserDTO {
     private String name;
     private String email;
     private String createdAt;
-    private String updated_at;
+    private String updatedAt;
 
 }

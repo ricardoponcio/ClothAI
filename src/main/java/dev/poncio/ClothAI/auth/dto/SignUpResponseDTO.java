@@ -1,6 +1,6 @@
 package dev.poncio.ClothAI.auth.dto;
 
-import dev.poncio.ClothAI.User.dto.UserDTO;
+import dev.poncio.ClothAI.user.dto.UserDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

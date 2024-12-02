@@ -1,4 +1,4 @@
-package dev.poncio.ClothAI.User;
+package dev.poncio.ClothAI.user;
 
 import dev.poncio.ClothAI.company.CompanyEntity;
 import jakarta.persistence.*;
@@ -33,12 +33,12 @@ public class UserEntity {
     @Column(name = "created_at")
     private ZonedDateTime createdAt;
     @Column(name = "updated_at")
-    private ZonedDateTime updated_at;
+    private ZonedDateTime updatedAt;
     @Column(name = "deleted_at")
-    private ZonedDateTime deleted_at;
+    private ZonedDateTime deletedAt;
     @Column(name = "active")
     private Boolean active;
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     private List<CompanyEntity> companies;
 
 }

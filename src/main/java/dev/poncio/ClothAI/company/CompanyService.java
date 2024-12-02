@@ -3,7 +3,6 @@ package dev.poncio.ClothAI.company;
 import dev.poncio.ClothAI.auth.AuthContext;
 import dev.poncio.ClothAI.company.dto.CreateCompanyDTO;
 import dev.poncio.ClothAI.company.dto.UpdateCompanyDTO;
-import dev.poncio.ClothAI.userCompany.UserCompanyService;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +28,6 @@ public class CompanyService {
 
     @Autowired
     private AuthContext authContext;
-
-    @Autowired
-    private UserCompanyService userCompanyService;
 
     public CompanyEntity findById(Long id) {
         return this.repository.findByIdAndActiveTrue(id).orElseThrow(EntityNotFoundException::new);

@@ -1,6 +1,6 @@
 package dev.poncio.ClothAI.auth;
 
-import dev.poncio.ClothAI.User.UserEntity;
+import dev.poncio.ClothAI.user.UserEntity;
 import dev.poncio.ClothAI.auth.dto.RegisterResponseDTO;
 import dev.poncio.ClothAI.auth.dto.SignUpResponseDTO;
 import org.modelmapper.ModelMapper;

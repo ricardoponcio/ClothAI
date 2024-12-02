@@ -1,7 +1,7 @@
 package dev.poncio.ClothAI.auth;
 
-import dev.poncio.ClothAI.User.UserService;
-import dev.poncio.ClothAI.User.dto.UserDTO;
+import dev.poncio.ClothAI.user.UserService;
+import dev.poncio.ClothAI.user.dto.UserDTO;
 import dev.poncio.ClothAI.auth.dto.RegisterRequestDTO;
 import dev.poncio.ClothAI.auth.dto.RegisterResponseDTO;
 import dev.poncio.ClothAI.auth.dto.SignUpRequestDTO;
@@ -19,7 +19,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     @Value("${server.servlet.session.cookie.http-only}")

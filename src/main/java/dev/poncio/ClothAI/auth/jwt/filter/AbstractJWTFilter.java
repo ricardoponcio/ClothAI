@@ -1,11 +1,12 @@
 package dev.poncio.ClothAI.auth.jwt.filter;
 
-import dev.poncio.ClothAI.User.UserService;
+import dev.poncio.ClothAI.user.UserService;
 import dev.poncio.ClothAI.auth.jwt.utils.JwtUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

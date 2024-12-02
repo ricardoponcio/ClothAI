@@ -1,4 +1,4 @@
-package dto;
+package dev.poncio.ClothAI.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

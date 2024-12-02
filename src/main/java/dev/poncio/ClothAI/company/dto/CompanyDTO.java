@@ -11,6 +11,6 @@ public class CompanyDTO {
     private Long id;
     private String name;
     private String createdAt;
-    private String updated_at;
+    private String updatedAt;
 
 }

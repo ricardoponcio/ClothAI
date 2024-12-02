@@ -1,9 +1,11 @@
-package dev.poncio.ClothAI.User;
+package dev.poncio.ClothAI.user;
 
 import dev.poncio.ClothAI.auth.dto.RegisterRequestDTO;
-import dev.poncio.ClothAI.User.dto.UserDTO;
+import dev.poncio.ClothAI.company.CompanyEntity;
+import dev.poncio.ClothAI.user.dto.UserDTO;
 import dev.poncio.ClothAI.auth.AuthContext;
 import dev.poncio.ClothAI.auth.CustomUserDetails;
+import org.hibernate.Hibernate;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
