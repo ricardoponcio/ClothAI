@@ -39,6 +39,21 @@ create table company_token (
 	company_id bigint not null references company(id)
 );
 
+CREATE TABLE configuration_storage_s3 (
+	id serial primary key NOT NULL,
+	s3_service_endpoint text NOT NULL,
+	s3_region text NOT NULL,
+	s3_access_key text NOT NULL,
+	s3_secret_key text NOT NULL,
+	s3_bucket_name text NOT NULL,
+	base_prefix text NULL,
+	created_at timestamp(6) not null default current_timestamp,
+	updated_at timestamp(6) null,
+	deleted_at timestamp(6) null,
+	active boolean not null default true,
+	company_id bigint not null references company(id)
+);
+
 create table cloth_resource (
 	id serial primary key,
 	name text null,
