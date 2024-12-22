@@ -16,3 +16,8 @@ AUTH.JWT.EXP.MS=86400000
 server.servlet.session.cookie.http-only=true
 server.servlet.session.cookie.secure=false
 cookie.domain.base-url=localhost
+
+thread-pool.clothai-execution.core-pool-size=10
+thread-pool.clothai-execution.max-pool-size=50
+thread-pool.clothai-execution.queue-capacity=10000
+thread-pool.clothai-execution.timeout=3600
