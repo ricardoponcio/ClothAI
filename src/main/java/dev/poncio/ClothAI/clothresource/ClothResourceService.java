@@ -1,7 +1,7 @@
-package dev.poncio.ClothAI.ClothResource;
+package dev.poncio.ClothAI.clothresource;
 
-import dev.poncio.ClothAI.ClothResource.dto.CreateClothResourceDTO;
-import dev.poncio.ClothAI.ClothResource.dto.UpdateClothResourceDTO;
+import dev.poncio.ClothAI.clothresource.dto.CreateClothResourceDTO;
+import dev.poncio.ClothAI.clothresource.dto.UpdateClothResourceDTO;
 import dev.poncio.ClothAI.common.services.CommonService;
 import dev.poncio.ClothAI.company.CompanyEntity;
 import jakarta.persistence.EntityNotFoundException;
@@ -25,6 +25,10 @@ public class ClothResourceService extends CommonService {
 
     public ClothResourceEntity findById(Long id) {
         return this.repository.findByIdAndActiveTrue(id).orElseThrow(EntityNotFoundException::new);
+    }
+
+    public ClothResourceEntity findByClothResourceIdentification(String clothResourceIdentification) {
+        return this.repository.findByIdentificationAndActiveTrue(clothResourceIdentification).orElseThrow(EntityNotFoundException::new);
     }
 
     public List<ClothResourceEntity> listClothResources(CompanyEntity company) {

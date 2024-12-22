@@ -1,8 +1,8 @@
-package dev.poncio.ClothAI.ClothResource;
+package dev.poncio.ClothAI.clothresource;
 
-import dev.poncio.ClothAI.ClothResource.dto.ClothResourceDTO;
-import dev.poncio.ClothAI.ClothResource.dto.CreateClothResourceDTO;
-import dev.poncio.ClothAI.ClothResource.dto.UpdateClothResourceDTO;
+import dev.poncio.ClothAI.clothresource.dto.ClothResourceDTO;
+import dev.poncio.ClothAI.clothresource.dto.CreateClothResourceDTO;
+import dev.poncio.ClothAI.clothresource.dto.UpdateClothResourceDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

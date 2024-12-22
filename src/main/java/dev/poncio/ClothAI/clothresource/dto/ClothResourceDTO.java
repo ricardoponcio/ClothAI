@@ -1,10 +1,6 @@
-package dev.poncio.ClothAI.ClothResource.dto;
+package dev.poncio.ClothAI.clothresource.dto;
 
-import dev.poncio.ClothAI.company.CompanyEntity;
-import jakarta.persistence.*;
 import lombok.Data;
-
-import java.time.ZonedDateTime;
 
 @Data
 public class ClothResourceDTO {

@@ -16,4 +16,6 @@ public interface ITokenRepository extends JpaRepository<TokenEntity, Long> {
 
     Optional<TokenEntity> findByIdAndActiveTrue(Long id);
 
+    Optional<TokenEntity> findByTokenAndActiveTrue(String token);
+
 }

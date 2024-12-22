@@ -1,4 +1,4 @@
-package dev.poncio.ClothAI.ClothResource;
+package dev.poncio.ClothAI.clothresource;
 
 import dev.poncio.ClothAI.company.CompanyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +13,7 @@ public interface IClothResourceRepository extends JpaRepository<ClothResourceEnt
     List<ClothResourceEntity> findAllByCompanyAndActiveTrue(CompanyEntity company);
 
     Optional<ClothResourceEntity> findByIdAndActiveTrue(Long id);
+
+    Optional<ClothResourceEntity> findByIdentificationAndActiveTrue(String identification);
 
 }

@@ -1,9 +1,11 @@
 package dev.poncio.ClothAI.configuration;
 
-import dev.poncio.ClothAI.user.UserService;
+import dev.poncio.ClothAI.auth.AuthConstants;
 import dev.poncio.ClothAI.auth.jwt.filter.AbstractJWTFilter;
-import dev.poncio.ClothAI.auth.jwt.utils.AuthEntryPointJwt;
 import dev.poncio.ClothAI.auth.jwt.filter.JWTCookieFilter;
+import dev.poncio.ClothAI.auth.jwt.filter.M2MTokenFilter;
+import dev.poncio.ClothAI.auth.jwt.utils.AuthEntryPointJwt;
+import dev.poncio.ClothAI.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +36,11 @@ public class WebSecurityConfig {
     }
 
     @Bean
+    public M2MTokenFilter apiJwtTokenFilter() {
+        return new M2MTokenFilter();
+    }
+
+    @Bean
     BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -58,12 +65,12 @@ public class WebSecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/login").permitAll()
-                        .requestMatchers("/api/auth/register").permitAll()
+                        .requestMatchers(AuthConstants.getExcludeAuthFilterPaths()).permitAll()
                         //.requestMatchers("/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 );
         http.addFilterAfter(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAfter(apiJwtTokenFilter(), JWTCookieFilter.class);
         http.authenticationProvider(authenticationProvider());
         return http.build();
     }

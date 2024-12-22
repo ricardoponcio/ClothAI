@@ -7,7 +7,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +28,10 @@ public class TokenService {
 
     public TokenEntity findById(Long id) {
         return this.repository.findByIdAndActiveTrue(id).orElseThrow(EntityNotFoundException::new);
+    }
+
+    public TokenEntity findToken(String token) {
+        return this.repository.findByTokenAndActiveTrue(token).orElseThrow(EntityNotFoundException::new);
     }
 
     public List<TokenEntity> listTokens(CompanyEntity company) throws Exception {

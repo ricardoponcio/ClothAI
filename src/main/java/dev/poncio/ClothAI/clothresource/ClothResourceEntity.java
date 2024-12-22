@@ -1,4 +1,4 @@
-package dev.poncio.ClothAI.ClothResource;
+package dev.poncio.ClothAI.clothresource;
 
 import dev.poncio.ClothAI.company.CompanyEntity;
 import jakarta.persistence.*;

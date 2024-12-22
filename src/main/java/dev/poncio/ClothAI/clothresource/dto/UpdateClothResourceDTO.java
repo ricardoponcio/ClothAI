@@ -1,4 +1,4 @@
-package dev.poncio.ClothAI.ClothResource.dto;
+package dev.poncio.ClothAI.clothresource.dto;
 
 import lombok.Data;
 
