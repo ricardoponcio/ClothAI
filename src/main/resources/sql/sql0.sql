@@ -74,7 +74,7 @@ create table cloth_ai_try_on_execution (
 	status_result boolean null,
 	message_result text null,
 	input_url text not null,
-	output_url text not null,
+	output_url text null,
 	execution_identification text not null,
 	cloth_resource_id bigint not null references cloth_resource(id),
 	token_id bigint not null references company_token(id),

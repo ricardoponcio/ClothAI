@@ -2,6 +2,7 @@ package dev.poncio.ClothAI.aiexecution;
 
 import dev.poncio.ClothAI.aiexecution.dto.ClothAiTryOnExecutionDTO;
 import dev.poncio.ClothAI.aiexecution.dto.StartClothAiTryOnExecutionDTO;
+import dev.poncio.ClothAI.auth.AuthContext;
 import dev.poncio.ClothAI.common.annotations.OnlyM2MEndpoint;
 import dev.poncio.ClothAI.company.CompanyEntity;
 import dev.poncio.ClothAI.utils.SecurityAccessControl;
@@ -26,6 +27,9 @@ public class ClothAiTryOnExecutionController {
     private ClothAiTryOnExecutionService service;
 
     @Autowired
+    private AuthContext authContext;
+
+    @Autowired
     private SecurityAccessControl securityAccessControl;
 
     @GetMapping(value = "/{companyId}/list-waiting")
@@ -39,10 +43,10 @@ public class ClothAiTryOnExecutionController {
     public ClothAiTryOnExecutionDTO registerNewExecution(@PathVariable Long companyId, @RequestPart("body") StartClothAiTryOnExecutionDTO startClothAiTryOnExecutionDTO, @RequestPart("attach") MultipartFile attach) throws IOException {
         this.securityAccessControl.checkAccessForCompany(companyId);
         CompanyEntity company = CompanyEntity.builder().id(companyId).build();
-        return this.mapper.toDto(this.service.registerExecution(company, null, startClothAiTryOnExecutionDTO, attach));
+        return this.mapper.toDto(this.service.registerExecution(company, this.authContext.getTokenEntityFromM2MRequest(), startClothAiTryOnExecutionDTO, attach));
     }
 
-    @PatchMapping(value = "/{companyId}/details/{executionId}")
+    @GetMapping(value = "/{companyId}/details/{executionId}")
     public ClothAiTryOnExecutionDTO checkExecutionDetails(@PathVariable Long companyId, @PathVariable String executionId) {
         this.securityAccessControl.checkAccessForCompany(companyId);
         CompanyEntity company = CompanyEntity.builder().id(companyId).build();
