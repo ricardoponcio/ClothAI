@@ -1,5 +1,6 @@
 package dev.poncio.ClothAI.storage;
 
+import dev.poncio.ClothAI.common.interfaces.IEntityWithCompany;
 import dev.poncio.ClothAI.company.CompanyEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SQLDelete(sql = "UPDATE clothai.configuration_storage_s3 SET active = false WHERE id=?")
-public class StorageEntity {
+public class StorageEntity implements IEntityWithCompany {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")

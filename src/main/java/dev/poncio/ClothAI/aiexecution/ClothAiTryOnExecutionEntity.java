@@ -1,6 +1,7 @@
 package dev.poncio.ClothAI.aiexecution;
 
 import dev.poncio.ClothAI.clothresource.ClothResourceEntity;
+import dev.poncio.ClothAI.common.interfaces.IEntityWithCompany;
 import dev.poncio.ClothAI.company.CompanyEntity;
 import dev.poncio.ClothAI.token.TokenEntity;
 import jakarta.persistence.*;
@@ -17,7 +18,7 @@ import java.time.ZonedDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClothAiTryOnExecutionEntity {
+public class ClothAiTryOnExecutionEntity implements IEntityWithCompany {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

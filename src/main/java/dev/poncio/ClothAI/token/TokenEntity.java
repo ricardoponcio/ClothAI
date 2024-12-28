@@ -1,5 +1,6 @@
 package dev.poncio.ClothAI.token;
 
+import dev.poncio.ClothAI.common.interfaces.IEntityWithCompany;
 import dev.poncio.ClothAI.company.CompanyEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.SQLDelete;
 
 import java.time.ZonedDateTime;
-import java.util.List;
 
 @Entity
 @Table(schema = "clothai", name = "company_token")
@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SQLDelete(sql = "UPDATE clothai.company_token SET active = false WHERE id=?")
-public class TokenEntity {
+public class TokenEntity implements IEntityWithCompany {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

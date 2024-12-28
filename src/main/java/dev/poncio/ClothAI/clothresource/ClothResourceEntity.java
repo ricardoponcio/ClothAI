@@ -1,5 +1,6 @@
 package dev.poncio.ClothAI.clothresource;
 
+import dev.poncio.ClothAI.common.interfaces.IEntityWithCompany;
 import dev.poncio.ClothAI.company.CompanyEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SQLDelete(sql = "UPDATE clothai.cloth_resource SET active = false WHERE id=?")
-public class ClothResourceEntity {
+public class ClothResourceEntity implements IEntityWithCompany {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

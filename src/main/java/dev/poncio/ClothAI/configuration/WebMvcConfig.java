@@ -1,7 +1,9 @@
 package dev.poncio.ClothAI.configuration;
 
 import dev.poncio.ClothAI.auth.AuthConstants;
+import dev.poncio.ClothAI.auth.interceptors.EnableRequestWithNoCompanyInterceptor;
 import dev.poncio.ClothAI.auth.interceptors.OnlyM2MEndpointsInterceptor;
+import dev.poncio.ClothAI.auth.interceptors.SecurityCompanyRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -25,8 +27,21 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return new OnlyM2MEndpointsInterceptor();
     }
 
+    @Bean
+    public EnableRequestWithNoCompanyInterceptor enableRequestWithNoCompanyInterceptor() {
+        return new EnableRequestWithNoCompanyInterceptor();
+    }
+
+    @Bean
+    public SecurityCompanyRequestInterceptor securityCompanyRequestInterceptor() {
+        return new SecurityCompanyRequestInterceptor();
+    }
+
     public @Override void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(onlyM2MEndpointInterceptor()).excludePathPatterns(AuthConstants.getExcludeAuthFilterPaths());
+        final String[] excludePaths = AuthConstants.getExcludeAuthFilterPaths();
+        registry.addInterceptor(onlyM2MEndpointInterceptor()).excludePathPatterns(excludePaths);
+        registry.addInterceptor(enableRequestWithNoCompanyInterceptor()).excludePathPatterns(excludePaths);
+        registry.addInterceptor(securityCompanyRequestInterceptor()).excludePathPatterns(excludePaths);
     }
 
 

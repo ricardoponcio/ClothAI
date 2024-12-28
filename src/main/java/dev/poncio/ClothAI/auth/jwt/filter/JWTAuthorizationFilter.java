@@ -5,8 +5,8 @@ import org.springframework.util.StringUtils;
 
 public class JWTAuthorizationFilter extends AbstractJWTFilter {
 
-    protected String parseJwt(HttpServletRequest request) {
-        String headerAuth = request.getHeader("Authorization");
+    protected String parseJwt(String keyName, HttpServletRequest request) {
+        String headerAuth = request.getHeader(keyName);
 
         if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
             if (headerAuth.length() > 8) {

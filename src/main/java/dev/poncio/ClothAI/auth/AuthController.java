@@ -1,5 +1,6 @@
 package dev.poncio.ClothAI.auth;
 
+import dev.poncio.ClothAI.common.annotations.EnableRequestWithNoCompany;
 import dev.poncio.ClothAI.user.UserService;
 import dev.poncio.ClothAI.user.dto.UserDTO;
 import dev.poncio.ClothAI.auth.dto.RegisterRequestDTO;
@@ -7,6 +8,7 @@ import dev.poncio.ClothAI.auth.dto.RegisterResponseDTO;
 import dev.poncio.ClothAI.auth.dto.SignUpRequestDTO;
 import dev.poncio.ClothAI.auth.dto.SignUpResponseDTO;
 import dev.poncio.ClothAI.auth.jwt.utils.JwtUtils;
+import dev.poncio.ClothAI.utils.CookieManager;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +22,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@EnableRequestWithNoCompany
 public class AuthController {
-
-    @Value("${server.servlet.session.cookie.http-only}")
-    private Boolean cookieHttpOnly;
-    @Value("${server.servlet.session.cookie.secure}")
-    private Boolean cookieSecure;
-    @Value("${cookie.domain.base-url}")
-    private String cookieDomainBaseUrl;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -40,6 +36,9 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CookieManager cookieManager;
 
     @PostMapping("/register")
     public RegisterResponseDTO registerUser(@Validated @RequestBody RegisterRequestDTO register, HttpServletResponse response) throws Exception {
@@ -55,7 +54,8 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
-        addAuthCookie(response, jwt);
+        this.cookieManager.addUserCookie(response, jwt);
+        this.cookieManager.removeCompanyCookie(response);
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
         return authMapper.map(userDetails.getUser());
     }
@@ -63,26 +63,13 @@ public class AuthController {
     @PostMapping("/logout")
     public void logout(HttpServletResponse response) {
         SecurityContextHolder.getContext().setAuthentication(null);
-        removeAuthCookie(response);
+        this.cookieManager.removeCompanyCookie(response);
+        this.cookieManager.removeUserCookie(response);
     }
 
     @GetMapping("/me")
     public UserDTO whoIs() {
         return userService.whoIsLogged();
-    }
-
-    private void addAuthCookie(HttpServletResponse response, String jwt) {
-        Cookie cookie = new Cookie("CLOTH_AI_AUTH_ID", jwt);
-        cookie.setMaxAge(24 * 60 * 60);
-        cookie.setSecure(cookieSecure);
-        cookie.setHttpOnly(cookieHttpOnly);
-        cookie.setPath("/");
-        cookie.setDomain(cookieDomainBaseUrl);
-        response.addCookie(cookie);
-    }
-
-    private void removeAuthCookie(HttpServletResponse response) {
-        addAuthCookie(response, null);
     }
 
 }

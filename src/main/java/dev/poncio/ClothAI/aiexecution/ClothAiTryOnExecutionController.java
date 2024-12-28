@@ -2,10 +2,8 @@ package dev.poncio.ClothAI.aiexecution;
 
 import dev.poncio.ClothAI.aiexecution.dto.ClothAiTryOnExecutionDTO;
 import dev.poncio.ClothAI.aiexecution.dto.StartClothAiTryOnExecutionDTO;
-import dev.poncio.ClothAI.auth.AuthContext;
 import dev.poncio.ClothAI.common.annotations.OnlyM2MEndpoint;
-import dev.poncio.ClothAI.company.CompanyEntity;
-import dev.poncio.ClothAI.utils.SecurityAccessControl;
+import dev.poncio.ClothAI.common.controllers.CommonController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +16,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/customer/api/cloth-ai-try-on-execution")
 @OnlyM2MEndpoint
-public class ClothAiTryOnExecutionController {
+public class ClothAiTryOnExecutionController extends CommonController {
 
     @Autowired
     private ClothAiTryOnExecutionMapper mapper;
@@ -26,30 +24,18 @@ public class ClothAiTryOnExecutionController {
     @Autowired
     private ClothAiTryOnExecutionService service;
 
-    @Autowired
-    private AuthContext authContext;
-
-    @Autowired
-    private SecurityAccessControl securityAccessControl;
-
-    @GetMapping(value = "/{companyId}/list-waiting")
-    public List<ClothAiTryOnExecutionDTO> listWaitingExecutions(@PathVariable Long companyId) {
-        this.securityAccessControl.checkAccessForCompany(companyId);
-        CompanyEntity company = CompanyEntity.builder().id(companyId).build();
-        return this.service.listWaitingExecution(company).stream().map(this.mapper::toDto).collect(Collectors.toList());
+    @GetMapping(value = "/list-waiting")
+    public List<ClothAiTryOnExecutionDTO> listWaitingExecutions() {
+        return this.service.listWaitingExecutionByCompany().stream().map(this.mapper::toDto).collect(Collectors.toList());
     }
 
-    @PutMapping(value = "/{companyId}/register", consumes = {MediaType.APPLICATION_PROBLEM_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ClothAiTryOnExecutionDTO registerNewExecution(@PathVariable Long companyId, @RequestPart("body") StartClothAiTryOnExecutionDTO startClothAiTryOnExecutionDTO, @RequestPart("attach") MultipartFile attach) throws IOException {
-        this.securityAccessControl.checkAccessForCompany(companyId);
-        CompanyEntity company = CompanyEntity.builder().id(companyId).build();
-        return this.mapper.toDto(this.service.registerExecution(company, this.authContext.getTokenEntityFromM2MRequest(), startClothAiTryOnExecutionDTO, attach));
+    @PutMapping(value = "/register", consumes = {MediaType.APPLICATION_PROBLEM_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public ClothAiTryOnExecutionDTO registerNewExecution(@RequestPart("body") StartClothAiTryOnExecutionDTO startClothAiTryOnExecutionDTO, @RequestPart("attach") MultipartFile attach) throws IOException {
+        return this.mapper.toDto(this.service.registerExecution(super.getAuthContext().getTokenEntityFromM2MRequest(), startClothAiTryOnExecutionDTO, attach));
     }
 
-    @GetMapping(value = "/{companyId}/details/{executionId}")
-    public ClothAiTryOnExecutionDTO checkExecutionDetails(@PathVariable Long companyId, @PathVariable String executionId) {
-        this.securityAccessControl.checkAccessForCompany(companyId);
-        CompanyEntity company = CompanyEntity.builder().id(companyId).build();
+    @GetMapping(value = "/details/{executionId}")
+    public ClothAiTryOnExecutionDTO checkExecutionDetails(@PathVariable String executionId) {
         return this.mapper.toDto(this.service.findByExecutionIdentification(executionId));
     }
 

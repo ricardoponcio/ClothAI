@@ -1,6 +1,8 @@
 package dev.poncio.ClothAI.auth.jwt.filter;
 
+import dev.poncio.ClothAI.auth.CustomTokenDetails;
 import dev.poncio.ClothAI.auth.jwt.utils.JwtUtils;
+import dev.poncio.ClothAI.company.CompanyEntity;
 import dev.poncio.ClothAI.token.TokenEntity;
 import dev.poncio.ClothAI.token.TokenMapper;
 import dev.poncio.ClothAI.token.TokenService;
@@ -39,15 +41,22 @@ public class M2MTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            String tokenReq = getHeaderToken(request);
+            String tokenReq = getHeaderData("ExternalToken", request);
             if (tokenReq != null) {
                 if (SecurityContextHolder.getContext().getAuthentication() != null) {
                     logger.warn("Already user authenticated, skipping M2M verification");
                 } else {
                     TokenEntity token = this.tokenService.findToken(tokenReq);
                     TokenDTO tokenDTO = this.tokenMapper.toDto(token);
+                    CustomTokenDetails tokenDetails = new CustomTokenDetails(tokenDTO);
+
+                    String companyIdStr = this.getHeaderData("CompanyId", request);
+                    if (StringUtils.hasText(companyIdStr)) {
+                        tokenDetails.setCompany(CompanyEntity.builder().id(Long.parseLong(companyIdStr)).build());
+                    }
+
                     PreAuthenticatedAuthenticationToken authentication = new PreAuthenticatedAuthenticationToken(
-                            tokenDTO, null, Collections.singletonList(new SimpleGrantedAuthority("M2M"))
+                            tokenDetails, null, Collections.singletonList(new SimpleGrantedAuthority("M2M"))
                     );
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -60,8 +69,8 @@ public class M2MTokenFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    protected String getHeaderToken(HttpServletRequest request) {
-        String headerAuth = request.getHeader("ExternalToken");
+    protected String getHeaderData(String headerName, HttpServletRequest request) {
+        String headerAuth = request.getHeader(headerName);
         if (StringUtils.hasText(headerAuth)) {
             return headerAuth;
         }

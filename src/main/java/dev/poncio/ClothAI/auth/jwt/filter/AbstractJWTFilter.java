@@ -1,12 +1,14 @@
 package dev.poncio.ClothAI.auth.jwt.filter;
 
-import dev.poncio.ClothAI.user.UserService;
+import dev.poncio.ClothAI.auth.CustomUserDetails;
 import dev.poncio.ClothAI.auth.jwt.utils.JwtUtils;
+import dev.poncio.ClothAI.company.CompanyEntity;
+import dev.poncio.ClothAI.user.UserService;
+import dev.poncio.ClothAI.utils.CookieManager;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +33,17 @@ public abstract class AbstractJWTFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            String jwt = parseJwt(request);
+            String jwt = parseJwt(CookieManager.USER_COOKIE_KEY, request);
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
-                String username = jwtUtils.getUserNameFromJwtToken(jwt);
-
+                String username = jwtUtils.getPayloadFromJwtToken(jwt);
                 UserDetails userDetails = this.userService.loadUserByUsername(username);
+
+                String jwtCompany = parseJwt(CookieManager.COMPANY_COOKIE_KEY, request);
+                if (jwtCompany != null && jwtUtils.validateJwtToken(jwtCompany)) {
+                    String companyId = jwtUtils.getPayloadFromJwtToken(jwtCompany);
+                    ((CustomUserDetails) userDetails).setCompany(CompanyEntity.builder().id(Long.parseLong(companyId)).build());
+                }
+
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 userDetails,
@@ -52,6 +60,6 @@ public abstract class AbstractJWTFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    protected abstract String parseJwt(HttpServletRequest request);
+    protected abstract String parseJwt(String keyName, HttpServletRequest request);
 
 }

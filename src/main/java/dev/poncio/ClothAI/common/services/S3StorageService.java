@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Service
-public class S3StorageService extends CommonService {
+public class S3StorageService {
 
     @Autowired
     private StorageService storageService;
@@ -80,7 +80,7 @@ public class S3StorageService extends CommonService {
     }
 
     private StorageEntity getConfig(CompanyEntity company) {
-        return this.storageService.get(company);
+        return this.storageService.getStorageByCompany(company);
     }
 
 }

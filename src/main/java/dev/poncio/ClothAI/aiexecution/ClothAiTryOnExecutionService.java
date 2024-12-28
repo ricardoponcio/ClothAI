@@ -1,9 +1,11 @@
 package dev.poncio.ClothAI.aiexecution;
 
 import dev.poncio.ClothAI.aiexecution.dto.StartClothAiTryOnExecutionDTO;
+import dev.poncio.ClothAI.clothresource.ClothResourceEntity;
 import dev.poncio.ClothAI.clothresource.ClothResourceService;
 import dev.poncio.ClothAI.common.services.CommonService;
 import dev.poncio.ClothAI.company.CompanyEntity;
+import dev.poncio.ClothAI.storage.StorageEntity;
 import dev.poncio.ClothAI.token.TokenEntity;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +23,7 @@ import java.util.UUID;
 
 @Slf4j
 @Service
-public class ClothAiTryOnExecutionService extends CommonService {
+public class ClothAiTryOnExecutionService extends CommonService<ClothAiTryOnExecutionEntity> {
 
     @Autowired
     private IClothAiTryOnExecutionRepository repository;
@@ -36,26 +38,34 @@ public class ClothAiTryOnExecutionService extends CommonService {
     @Qualifier("clothAiExecutionThreadPool")
     private TaskExecutor taskExecutor;
 
+    @Override
+    protected ClothAiTryOnExecutionEntity findById(Long id) {
+        return this.repository.findById(id).orElseThrow(EntityNotFoundException::new);
+    }
+
     public ClothAiTryOnExecutionEntity findByExecutionIdentification(String executionIdentification) {
-        return this.repository.findByExecutionIdentification(executionIdentification).orElseThrow(EntityNotFoundException::new);
+        ClothAiTryOnExecutionEntity execution = this.repository.findByExecutionIdentification(executionIdentification).orElseThrow(EntityNotFoundException::new);
+        super.checkSecurityEntity(execution);
+        return execution;
     }
 
     public List<ClothAiTryOnExecutionEntity> listWaitingExecution() {
         return this.repository.findAllByStartedAtIsNull();
     }
 
-    public List<ClothAiTryOnExecutionEntity> listWaitingExecution(CompanyEntity company) {
-        return this.repository.findAllByCompanyAndStartedAtIsNull(company);
+    public List<ClothAiTryOnExecutionEntity> listWaitingExecutionByCompany() {
+        return this.repository.findAllByCompanyAndStartedAtIsNull(super.getAuthContext().getManagedCompany());
     }
 
-    public ClothAiTryOnExecutionEntity registerExecution(CompanyEntity company, TokenEntity token, StartClothAiTryOnExecutionDTO startClothAiTryOnExecutionDTO, MultipartFile attach) throws IOException {
+    public ClothAiTryOnExecutionEntity registerExecution(TokenEntity token, StartClothAiTryOnExecutionDTO startClothAiTryOnExecutionDTO, MultipartFile attach) throws IOException {
         final var newExecution = new ClothAiTryOnExecutionEntity();
         newExecution.setCreatedAt(ZonedDateTime.now());
         newExecution.setExecutionIdentification(UUID.randomUUID().toString());
-        newExecution.setCompany(company);
+        newExecution.setCompany(super.getAuthContext().getManagedCompany());
         newExecution.setToken(token);
         newExecution.setClothResource(this.clothResourceService.findByClothResourceIdentification(startClothAiTryOnExecutionDTO.getClothResourceIdentification()));
-        final var uploadResponse = super.getS3StorageService().uploadFile(company, "execution/" + newExecution.getExecutionIdentification(), attach.getInputStream());
+        final var uploadResponse = super.getS3StorageService().uploadFile(super.getAuthContext().getManagedCompany(),
+                "execution/" + newExecution.getExecutionIdentification(), attach.getInputStream());
         newExecution.setInputUrl(uploadResponse);
         return this.repository.save(newExecution);
     }

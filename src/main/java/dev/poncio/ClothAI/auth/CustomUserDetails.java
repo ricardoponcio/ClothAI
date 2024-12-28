@@ -1,7 +1,10 @@
 package dev.poncio.ClothAI.auth;
 
+import dev.poncio.ClothAI.company.CompanyEntity;
 import dev.poncio.ClothAI.user.UserEntity;
+import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,10 +13,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class CustomUserDetails implements UserDetails {
+@Getter
+public class CustomUserDetails implements UserDetails, CustomSessionDetails {
 
-    @Getter
     private final UserEntity user;
+
+    @Setter
+    private CompanyEntity company;
 
     public CustomUserDetails(UserEntity user) {
         this.user = user;

@@ -1,0 +1,297 @@
+2024-12-26T22:57:44.478-03:00  INFO 27404 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 27404 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T22:57:44.484-03:00  INFO 27404 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T22:57:45.567-03:00  INFO 27404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T22:57:45.698-03:00  INFO 27404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 6 JPA repository interfaces.
+2024-12-26T22:57:47.503-03:00  INFO 27404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T22:57:47.522-03:00  INFO 27404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-26T22:57:47.522-03:00  INFO 27404 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-26T22:57:47.656-03:00  INFO 27404 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-26T22:57:47.657-03:00  INFO 27404 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3070 ms
+2024-12-26T22:57:48.155-03:00  INFO 27404 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T22:57:48.472-03:00  INFO 27404 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T22:57:48.548-03:00  INFO 27404 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T22:57:49.343-03:00  INFO 27404 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T22:57:49.423-03:00  INFO 27404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T22:57:50.576-03:00  INFO 27404 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5c5c7cc4
+2024-12-26T22:57:50.583-03:00  INFO 27404 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-26T22:57:50.741-03:00  WARN 27404 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-26T22:57:50.840-03:00  INFO 27404 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-26T22:57:52.982-03:00  INFO 27404 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-26T22:57:52.986-03:00  INFO 27404 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T22:57:54.163-03:00  INFO 27404 --- [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-12-26T22:57:54.166-03:00  WARN 27404 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2024-12-26T22:57:54.316-03:00  WARN 27404 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-26T22:57:56.321-03:00  INFO 27404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4049 (http) with context path '/'
+2024-12-26T22:57:56.355-03:00  INFO 27404 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Started ClothAiTryOnApplication in 12.647 seconds (process running for 13.335)
+2024-12-26T23:00:01.084-03:00  INFO 27404 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-26T23:00:01.198-03:00  INFO 27404 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-26T23:00:01.218-03:00  INFO 27404 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:00:01.218-03:00  INFO 27404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-26T23:00:01.229-03:00  INFO 27404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-26T23:00:11.281-03:00  INFO 50268 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 50268 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T23:00:11.289-03:00  INFO 50268 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T23:00:12.313-03:00  INFO 50268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T23:00:12.461-03:00  INFO 50268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 6 JPA repository interfaces.
+2024-12-26T23:00:14.263-03:00  INFO 50268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T23:00:14.282-03:00  INFO 50268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-26T23:00:14.283-03:00  INFO 50268 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-26T23:00:14.400-03:00  INFO 50268 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-26T23:00:14.401-03:00  INFO 50268 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3011 ms
+2024-12-26T23:00:15.050-03:00  INFO 50268 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T23:00:15.391-03:00  INFO 50268 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T23:00:15.486-03:00  INFO 50268 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T23:00:16.464-03:00  INFO 50268 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T23:00:16.534-03:00  INFO 50268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T23:00:17.195-03:00  INFO 50268 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4948daec
+2024-12-26T23:00:17.199-03:00  INFO 50268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-26T23:00:17.308-03:00  WARN 50268 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-26T23:00:17.485-03:00  INFO 50268 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-26T23:00:21.442-03:00  INFO 50268 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-26T23:00:21.461-03:00  INFO 50268 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:00:23.738-03:00  INFO 50268 --- [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-12-26T23:00:23.739-03:00  WARN 50268 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2024-12-26T23:00:23.845-03:00  WARN 50268 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-26T23:00:26.075-03:00  INFO 50268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4049 (http) with context path '/'
+2024-12-26T23:00:26.124-03:00  INFO 50268 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Started ClothAiTryOnApplication in 15.679 seconds (process running for 16.386)
+2024-12-26T23:00:30.521-03:00  INFO 50268 --- [http-nio-4049-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-26T23:00:30.522-03:00  INFO 50268 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-26T23:00:30.523-03:00  INFO 50268 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-26T23:00:30.563-03:00 ERROR 50268 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:00:30.572-03:00 ERROR 50268 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:00:33.663-03:00 ERROR 50268 --- [http-nio-4049-exec-2] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:00:33.663-03:00 ERROR 50268 --- [http-nio-4049-exec-2] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:00:36.266-03:00 ERROR 50268 --- [http-nio-4049-exec-3] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:00:36.266-03:00 ERROR 50268 --- [http-nio-4049-exec-3] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:01:04.753-03:00  WARN 50268 --- [http-nio-4049-exec-9] d.p.C.auth.jwt.filter.AbstractJWTFilter  : Already user authenticated, skipping M2M verification
+2024-12-26T23:02:01.702-03:00 ERROR 50268 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.filter.AbstractJWTFilter  : Cannot set user authentication: User not found
+2024-12-26T23:02:01.704-03:00 ERROR 50268 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:02:01.706-03:00 ERROR 50268 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:02:24.026-03:00  INFO 50268 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-26T23:02:24.138-03:00  INFO 50268 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-26T23:02:24.147-03:00  INFO 50268 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:02:24.152-03:00  INFO 50268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-26T23:02:24.157-03:00  INFO 50268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-26T23:02:30.153-03:00  INFO 9188 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 9188 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T23:02:30.159-03:00  INFO 9188 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T23:02:31.143-03:00  INFO 9188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T23:02:31.318-03:00  INFO 9188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 162 ms. Found 6 JPA repository interfaces.
+2024-12-26T23:02:32.979-03:00  INFO 9188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T23:02:32.998-03:00  INFO 9188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-26T23:02:32.999-03:00  INFO 9188 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-26T23:02:33.110-03:00  INFO 9188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-26T23:02:33.111-03:00  INFO 9188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2859 ms
+2024-12-26T23:02:33.669-03:00  INFO 9188 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T23:02:34.028-03:00  INFO 9188 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T23:02:34.231-03:00  INFO 9188 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T23:02:34.939-03:00  INFO 9188 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T23:02:34.982-03:00  INFO 9188 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T23:02:35.443-03:00  INFO 9188 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7de3206d
+2024-12-26T23:02:35.445-03:00  INFO 9188 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-26T23:02:35.524-03:00  WARN 9188 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-26T23:02:35.629-03:00  INFO 9188 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-26T23:02:37.158-03:00  INFO 9188 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-26T23:02:37.162-03:00  INFO 9188 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:02:38.054-03:00  INFO 9188 --- [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-12-26T23:02:38.055-03:00  WARN 9188 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2024-12-26T23:02:38.145-03:00  WARN 9188 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-26T23:02:39.351-03:00  INFO 9188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4049 (http) with context path '/'
+2024-12-26T23:02:39.378-03:00  INFO 9188 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Started ClothAiTryOnApplication in 9.993 seconds (process running for 10.678)
+2024-12-26T23:02:41.523-03:00  INFO 9188 --- [http-nio-4049-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-26T23:02:41.524-03:00  INFO 9188 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-26T23:02:41.525-03:00  INFO 9188 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-26T23:02:41.772-03:00 ERROR 9188 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.filter.AbstractJWTFilter  : Cannot set user authentication: User not found
+2024-12-26T23:02:41.780-03:00 ERROR 9188 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:02:41.795-03:00 ERROR 9188 --- [http-nio-4049-exec-1] d.p.C.auth.jwt.utils.AuthEntryPointJwt   : Unauthorized error: Full authentication is required to access this resource
+2024-12-26T23:02:44.371-03:00 ERROR 9188 --- [http-nio-4049-exec-2] d.p.C.auth.jwt.filter.AbstractJWTFilter  : Cannot set user authentication: User not found
+2024-12-26T23:03:21.052-03:00  INFO 9188 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-26T23:03:21.177-03:00  INFO 9188 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-26T23:03:21.185-03:00  INFO 9188 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:03:21.190-03:00  INFO 9188 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-26T23:03:21.196-03:00  INFO 9188 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-26T23:06:23.523-03:00  INFO 44156 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 44156 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T23:06:23.528-03:00  INFO 44156 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T23:06:24.516-03:00  INFO 44156 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T23:06:24.658-03:00  INFO 44156 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 6 JPA repository interfaces.
+2024-12-26T23:06:26.416-03:00  INFO 44156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T23:06:26.585-03:00  INFO 44156 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2960 ms
+2024-12-26T23:06:27.276-03:00  INFO 44156 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T23:06:27.645-03:00  INFO 44156 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T23:06:27.766-03:00  INFO 44156 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T23:06:28.314-03:00  INFO 44156 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T23:06:28.359-03:00  INFO 44156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T23:06:45.859-03:00  INFO 29600 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 29600 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T23:06:45.866-03:00  INFO 29600 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T23:06:46.994-03:00  INFO 29600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T23:06:47.129-03:00  INFO 29600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121 ms. Found 6 JPA repository interfaces.
+2024-12-26T23:06:48.759-03:00  INFO 29600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T23:06:48.778-03:00  INFO 29600 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-26T23:06:48.779-03:00  INFO 29600 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-26T23:06:48.905-03:00  INFO 29600 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-26T23:06:48.906-03:00  INFO 29600 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2930 ms
+2024-12-26T23:06:49.392-03:00  INFO 29600 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T23:06:49.681-03:00  INFO 29600 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T23:06:49.761-03:00  INFO 29600 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T23:06:50.381-03:00  INFO 29600 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T23:06:50.426-03:00  INFO 29600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T23:06:50.874-03:00  INFO 29600 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@144a5e6e
+2024-12-26T23:06:50.876-03:00  INFO 29600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-26T23:06:50.944-03:00  WARN 29600 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-26T23:06:51.030-03:00  INFO 29600 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-26T23:06:52.726-03:00  INFO 29600 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-26T23:06:52.732-03:00  INFO 29600 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:06:53.507-03:00  INFO 29600 --- [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-12-26T23:06:53.508-03:00  WARN 29600 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2024-12-26T23:06:53.605-03:00  WARN 29600 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-26T23:06:55.419-03:00  INFO 29600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4049 (http) with context path '/'
+2024-12-26T23:06:55.454-03:00  INFO 29600 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Started ClothAiTryOnApplication in 10.416 seconds (process running for 11.073)
+2024-12-26T23:07:02.674-03:00  INFO 29600 --- [http-nio-4049-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-26T23:07:02.675-03:00  INFO 29600 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-26T23:07:02.677-03:00  INFO 29600 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-12-26T23:09:35.801-03:00  INFO 29600 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-26T23:09:35.917-03:00  INFO 29600 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-26T23:09:35.924-03:00  INFO 29600 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:09:35.929-03:00  INFO 29600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-26T23:09:35.934-03:00  INFO 29600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-26T23:09:42.111-03:00  INFO 50688 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 50688 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T23:09:42.115-03:00  INFO 50688 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T23:09:43.224-03:00  INFO 50688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T23:09:43.376-03:00  INFO 50688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137 ms. Found 6 JPA repository interfaces.
+2024-12-26T23:09:44.916-03:00  INFO 50688 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T23:09:44.934-03:00  INFO 50688 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-26T23:09:44.935-03:00  INFO 50688 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-26T23:09:45.077-03:00  INFO 50688 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-26T23:09:45.078-03:00  INFO 50688 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2870 ms
+2024-12-26T23:09:45.673-03:00  INFO 50688 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T23:09:45.839-03:00  INFO 50688 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T23:09:45.906-03:00  INFO 50688 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T23:09:46.453-03:00  INFO 50688 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T23:09:46.494-03:00  INFO 50688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T23:09:46.958-03:00  INFO 50688 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@696174d3
+2024-12-26T23:09:46.960-03:00  INFO 50688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-26T23:09:47.066-03:00  WARN 50688 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-26T23:09:47.220-03:00  INFO 50688 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-26T23:09:48.809-03:00  INFO 50688 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-26T23:09:48.814-03:00  INFO 50688 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:09:49.822-03:00  INFO 50688 --- [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-12-26T23:09:49.824-03:00  WARN 50688 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2024-12-26T23:09:49.949-03:00  WARN 50688 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-26T23:09:52.107-03:00  INFO 50688 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4049 (http) with context path '/'
+2024-12-26T23:09:52.147-03:00  INFO 50688 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Started ClothAiTryOnApplication in 10.843 seconds (process running for 11.471)
+2024-12-26T23:09:53.214-03:00  INFO 50688 --- [http-nio-4049-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-26T23:09:53.215-03:00  INFO 50688 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-26T23:09:53.217-03:00  INFO 50688 --- [http-nio-4049-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-26T23:13:27.001-03:00  INFO 50688 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-26T23:13:27.093-03:00  INFO 50688 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-26T23:13:27.099-03:00  INFO 50688 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:13:27.101-03:00  INFO 50688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-26T23:13:27.109-03:00  INFO 50688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-26T23:13:34.831-03:00  INFO 16380 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 16380 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T23:13:34.835-03:00  INFO 16380 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T23:13:35.869-03:00  INFO 16380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T23:13:36.005-03:00  INFO 16380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121 ms. Found 6 JPA repository interfaces.
+2024-12-26T23:13:38.069-03:00  INFO 16380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T23:13:38.096-03:00  INFO 16380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-26T23:13:38.096-03:00  INFO 16380 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-26T23:13:38.257-03:00  INFO 16380 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-26T23:13:38.257-03:00  INFO 16380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3315 ms
+2024-12-26T23:13:39.030-03:00  INFO 16380 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T23:13:39.246-03:00  INFO 16380 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T23:13:39.336-03:00  INFO 16380 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T23:13:40.155-03:00  INFO 16380 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T23:13:40.218-03:00  INFO 16380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T23:13:41.003-03:00  INFO 16380 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2d913116
+2024-12-26T23:13:41.005-03:00  INFO 16380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-26T23:13:41.095-03:00  WARN 16380 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-26T23:13:41.202-03:00  INFO 16380 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-26T23:13:45.658-03:00  INFO 16380 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-26T23:13:45.670-03:00  INFO 16380 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:13:48.223-03:00  INFO 16380 --- [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-12-26T23:13:48.241-03:00  WARN 16380 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2024-12-26T23:13:48.544-03:00  WARN 16380 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-26T23:13:52.188-03:00  INFO 16380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4049 (http) with context path '/'
+2024-12-26T23:13:52.282-03:00  INFO 16380 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Started ClothAiTryOnApplication in 18.295 seconds (process running for 18.933)
+2024-12-26T23:14:03.994-03:00  INFO 16380 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-26T23:14:04.264-03:00  INFO 16380 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-26T23:14:04.264-03:00  INFO 16380 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:14:04.280-03:00  INFO 16380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-26T23:14:04.296-03:00  INFO 16380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-26T23:18:58.510-03:00  INFO 48476 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Starting ClothAiTryOnApplication using Java 17.0.9 with PID 48476 (C:\DEV\Pessoal\ClothAI-Project\ClothAI\target\classes started by ricar in C:\DEV\Pessoal\ClothAI-Project\ClothAI)
+2024-12-26T23:18:58.519-03:00  INFO 48476 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T23:18:59.669-03:00  INFO 48476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-26T23:18:59.819-03:00  INFO 48476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131 ms. Found 6 JPA repository interfaces.
+2024-12-26T23:19:01.452-03:00  INFO 48476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4049 (http)
+2024-12-26T23:19:01.468-03:00  INFO 48476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-26T23:19:01.468-03:00  INFO 48476 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-26T23:19:01.597-03:00  INFO 48476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-26T23:19:01.599-03:00  INFO 48476 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2958 ms
+2024-12-26T23:19:02.285-03:00  INFO 48476 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-26T23:19:02.684-03:00  INFO 48476 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-26T23:19:02.763-03:00  INFO 48476 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-26T23:19:03.302-03:00  INFO 48476 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-26T23:19:03.334-03:00  INFO 48476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-26T23:19:03.938-03:00  INFO 48476 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@714f1a44
+2024-12-26T23:19:03.938-03:00  INFO 48476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-26T23:19:04.034-03:00  WARN 48476 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-26T23:19:04.150-03:00  INFO 48476 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-26T23:19:05.812-03:00  INFO 48476 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-26T23:19:05.818-03:00  INFO 48476 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:19:06.984-03:00  INFO 48476 --- [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-12-26T23:19:06.984-03:00  WARN 48476 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2024-12-26T23:19:07.068-03:00  INFO 48476 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-26T23:19:08.544-03:00  WARN 48476 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-26T23:19:10.807-03:00  INFO 48476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4049 (http) with context path '/'
+2024-12-26T23:19:10.850-03:00  INFO 48476 --- [main] d.p.ClothAI.ClothAiTryOnApplication      : Started ClothAiTryOnApplication in 13.174 seconds (process running for 13.802)
+2024-12-26T23:19:10.877-03:00  INFO 48476 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-26T23:19:11.023-03:00  INFO 48476 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-26T23:19:11.313-03:00  INFO 48476 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-26T23:19:11.313-03:00  INFO 48476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-26T23:19:11.337-03:00  INFO 48476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

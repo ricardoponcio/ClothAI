@@ -1,10 +1,12 @@
 package dev.poncio.ClothAI.auth;
 
+import dev.poncio.ClothAI.company.CompanyEntity;
 import dev.poncio.ClothAI.token.TokenEntity;
 import dev.poncio.ClothAI.token.TokenService;
 import dev.poncio.ClothAI.token.dto.TokenDTO;
 import dev.poncio.ClothAI.user.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,17 +19,23 @@ public class AuthContext {
     @Autowired
     private TokenService tokenService;
 
-    public boolean isM2MRequest() {
+    private CustomSessionDetails getSessionData() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return !(authentication instanceof UsernamePasswordAuthenticationToken);
+        if (!(authentication instanceof AbstractAuthenticationToken authenticationToken)) return null;
+        Object principal = authenticationToken.getPrincipal();
+        if (!(principal instanceof CustomSessionDetails sessionDetails)) return null;
+        return sessionDetails;
+    }
+
+    public boolean isM2MRequest() {
+        CustomSessionDetails sessionDetails = getSessionData();
+        return sessionDetails instanceof CustomTokenDetails;
     }
 
     public TokenDTO getTokenFromM2MRequest() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof PreAuthenticatedAuthenticationToken authenticatedToken)) return null;
-        Object userPrincipal = authenticatedToken.getPrincipal();
-        if (!(userPrincipal instanceof TokenDTO token)) return null;
-        return token;
+        CustomSessionDetails sessionDetails = getSessionData();
+        assert sessionDetails != null;
+        return ((CustomTokenDetails) sessionDetails).getToken();
     }
 
     public TokenEntity getTokenEntityFromM2MRequest() {
@@ -35,18 +43,20 @@ public class AuthContext {
     }
 
     public UserEntity getLoggedUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof UsernamePasswordAuthenticationToken authenticatedUserToken)) return null;
-        Object userPrincipal = authenticatedUserToken.getPrincipal();
-        if (!(userPrincipal instanceof CustomUserDetails userDetails)) return null;
-        if (userDetails == null) return null;
-        return userDetails.getUser();
+        CustomSessionDetails sessionDetails = getSessionData();
+        assert sessionDetails != null;
+        return ((CustomUserDetails) sessionDetails).getUser();
     }
 
     public Long getLoggedUserId() {
         UserEntity loggedUser = getLoggedUser();
-        if (loggedUser == null) return null;
         return loggedUser.getId();
+    }
+
+    public CompanyEntity getManagedCompany() {
+        CustomSessionDetails sessionDetails = getSessionData();
+        assert sessionDetails != null;
+        return sessionDetails.getCompany();
     }
 
 }

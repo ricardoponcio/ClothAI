@@ -34,7 +34,7 @@ public class CompanyService {
     }
 
     public List<CompanyEntity> listCompanies() {
-        return this.repository.findAllByActiveTrue();
+        return this.repository.findByUserId(this.authContext.getLoggedUserId());
     }
 
     public CompanyEntity createCompany(CreateCompanyDTO createCompanyDTO) {

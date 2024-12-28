@@ -1,6 +1,7 @@
 package dev.poncio.ClothAI.auth.jwt.utils;
 
 import dev.poncio.ClothAI.auth.CustomUserDetails;
+import dev.poncio.ClothAI.company.CompanyEntity;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -37,11 +38,20 @@ public class JwtUtils {
                 .compact();
     }
 
+    public String generateJwtTokenCompany(CompanyEntity company) {
+       return Jwts.builder()
+                .subject(company.getId().toString())
+                .issuedAt(new Date())
+                .expiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(key())
+                .compact();
+    }
+
     private SecretKey key() {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
 
-    public String getUserNameFromJwtToken(String token) {
+    public String getPayloadFromJwtToken(String token) {
         return Jwts.parser().verifyWith(key()).build().parseSignedClaims(token).getPayload().getSubject();
     }
 
